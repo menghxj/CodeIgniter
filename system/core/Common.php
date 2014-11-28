@@ -293,6 +293,7 @@ if ( ! function_exists('config_item'))
 	function config_item($item)
 	{
 		static $_config;
+		static $_return;
 
 		if (empty($_config))
 		{
@@ -300,7 +301,9 @@ if ( ! function_exists('config_item'))
 			$_config[0] =& get_config();
 		}
 
-		return isset($_config[0][$item]) ? $_config[0][$item] : NULL;
+		$_return=isset($_config[0][$item]) ? $_config[0][$item] : NULL;
+
+		return $_return;
 	}
 }
 
